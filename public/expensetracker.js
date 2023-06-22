@@ -28,7 +28,7 @@ inputElement.style.height = "25px";
   inputElement.onclick=async()=>{
     const token=localStorage.getItem('token')
   
-  const userleaderboardArray= await axios.get('18.234.97.190:4500/premium/showLeaderBoard',{headers:{"Authorization":token}})
+  const userleaderboardArray= await axios.get('35.175.246.186:4500/premium/showLeaderBoard',{headers:{"Authorization":token}})
   console.log(userleaderboardArray);
   var cont = document.getElementById('container');
   
@@ -76,7 +76,7 @@ document.addEventListener("DOMContentLoaded",(event) =>{
   showprebutton();
  }
  
-    axios.get(`18.234.97.190:4500/expense/getexpenses?page=${page}`,{headers:{"Authorization":token}})
+    axios.get(`35.175.246.186:4500/expense/getexpenses?page=${page}`,{headers:{"Authorization":token}})
     .then(res =>{ //console.log(res.data)
    
       var fragment = document.createDocumentFragment(); // Create a fragment to hold the items
@@ -124,7 +124,7 @@ function onsubmit(e){
     }
     console.log(obj);
     const token=localStorage.getItem('token')
-    axios.post("18.234.97.190:4500/expense/addexpense",obj,{headers:{"Authorization":token}})
+    axios.post("35.175.246.186:4500/expense/addexpense",obj,{headers:{"Authorization":token}})
     .then((res) =>{
       console.log(res.data);
      
@@ -170,7 +170,7 @@ function createElement(objun, currentPage, itemsPerPage) {
      const token=localStorage.getItem('token')
    
        axios
-        .delete(`18.234.97.190:4500/expense/deleteexpense/${objun.id}`,{headers:{"Authorization":token}})
+        .delete(`35.175.246.186:4500/expense/deleteexpense/${objun.id}`,{headers:{"Authorization":token}})
         .then((res) =>
         console.log(res.data),
          li.remove(),
@@ -232,7 +232,7 @@ dropdown.addEventListener('change', (event) => {
   console.log(selectedPageSize)
   localStorage.setItem('selectedPageSize',selectedPageSize)
   const token = localStorage.getItem('token');
-  const url = `18.234.97.190:4500/expense/getexpenses?pageSize=${selectedPageSize}`;
+  const url = `35.175.246.186:4500/expense/getexpenses?pageSize=${selectedPageSize}`;
   
   // Make the API call with the updated URL
   axios.get(url, { headers: { "Authorization": token } })
@@ -264,7 +264,7 @@ function getExpenses(page) {
   // Example: Console log the page value
   const selectedPageSize=localStorage.getItem('selectedPageSize')
   console.log(selectedPageSize)
-  axios.get(`18.234.97.190:4500/expense/getexpenses?page=${page}&pageSize=${selectedPageSize} `,{headers:{"Authorization":token}})
+  axios.get(`35.175.246.186:4500/expense/getexpenses?page=${page}&pageSize=${selectedPageSize} `,{headers:{"Authorization":token}})
   .then(res =>{ 
    
     var fragment = document.createDocumentFragment(); // Create a fragment to hold the items
@@ -289,14 +289,14 @@ document.getElementById('rzp-button1').onclick=async function(e){
   const token=localStorage.getItem('token')
   
 
- const response= await axios.get('18.234.97.190:4500/purchase/premiummembership',{headers:{"Authorization":token}});
+ const response= await axios.get('35.175.246.186:4500/purchase/premiummembership',{headers:{"Authorization":token}});
   console.log(response);
    var options=
    {
     "key":response.data.key_id,
     "order_id":response.data.order.id,
     "handler":async function(response){
-    const res= await axios.post('18.234.97.190:4500/purchase/updatetransactionstatus',{order_id:options.order_id,payment_id:response.razorpay_payment_id,}, {headers:{"Authorization":token}});
+    const res= await axios.post('35.175.246.186:4500/purchase/updatetransactionstatus',{order_id:options.order_id,payment_id:response.razorpay_payment_id,}, {headers:{"Authorization":token}});
   
     alert('you are premium user now');
     localStorage.setItem('token',res.data.token)
@@ -327,7 +327,7 @@ toggleButton.addEventListener('click', async () => {
       const token=localStorage.getItem('token')
   
 
- const response= await axios.get('18.234.97.190:4500/expense/downloadfile',{headers:{"Authorization":token}});
+ const response= await axios.get('35.175.246.186:4500/expense/downloadfile',{headers:{"Authorization":token}});
       // Assuming the response JSON contains a `downloadUrls` array
       console.log(response)
       const downloadUrls =response. data.fileUrls;
@@ -353,7 +353,7 @@ toggleButton.addEventListener('click', async () => {
 
 function download(){
   const token=localStorage.getItem('token')
-  axios.get('18.234.97.190:4500/expense/download', { headers: {"Authorization" : token} })
+  axios.get('35.175.246.186:4500/expense/download', { headers: {"Authorization" : token} })
   .then((response) => {
     console.log("Download response is",response)
       if(response.status === 200){

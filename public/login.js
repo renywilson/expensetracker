@@ -10,7 +10,7 @@ function login(e){
 
     }
     console.log(loginDetails)
- axios.post('18.234.97.190:4500/user/login',loginDetails).then(response=>{
+ axios.post('35.175.246.186:4500/user/login',loginDetails).then(response=>{
     console.log(response.data)
     if(response.status === 200){
         localStorage.setItem('token', response.data.token);
