@@ -27,7 +27,7 @@ app.use(helmet());
 app.use(compression());
 app.use(morgan('combined',{stream:accessLogStream}));
 
-console.log()
+//console.log()
 app.use(cors());   
 
 // app.use(bodyParser.urlencoded());  ////this is for handling forms
@@ -43,7 +43,7 @@ app.use('/purchase', purchaseRoutes)
 app.use('/premium', premiumFeatureRoutes)
 app.use('/password', resetPasswordRoutes);
 app.use((req,res)=>{
-    console.log('urll',req.url);
+   // console.log('urll',req.url);
  // res.sendFile(path.join(__dirname,'public/login.html')) 
   res.sendFile(path.join(__dirname,`public/${req.url}`))  
 })
