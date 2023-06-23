@@ -56,7 +56,7 @@ User.hasMany(Forgotpassword);
 Forgotpassword.belongsTo(User);
 User.hasMany(Download)
 Download.belongsTo(User);
-console.log(process.env.NODE_ENV);
+//console.log(process.env.NODE_ENV);
 sequelize.sync()
     .then(() => {
    // https.createServer({key:privatekey,cert:certificate},app).listen(process.env.PORT||4500);
