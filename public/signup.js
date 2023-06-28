@@ -13,7 +13,7 @@ function onsubmit(e){
         password
     }
     console.log(obj);
-axios.post("localhost:4500/user/signup",obj)
+axios.post("http://54.210.235.174:4500/user/signup",obj)
 .then((res) =>{
   if(res.status===201)
   {
