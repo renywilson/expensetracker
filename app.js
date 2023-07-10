@@ -56,7 +56,7 @@ sequelize.sync()
    // https.createServer({key:privatekey,cert:certificate},app).listen(process.env.PORT||4500);
    app.listen(process.env.PORT||4500);;
 
-console.log('DB connection successful.');
+console.log('DB connection successful great.');
 
     })
     .catch(err => {
