@@ -176,10 +176,7 @@ function createElement(objun, currentPage, itemsPerPage) {
          li.remove(),
          alert("One Record Deleted")
          )
-        .catch((err) => {
-          alert("Something went wrong");
-          console.log(err);
-        });
+       
     
   });
 
